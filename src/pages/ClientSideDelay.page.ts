@@ -1,4 +1,4 @@
-import{expect, Page, type Locator, type page}from "@playwright/test";
+import{expect, type Locator, type Page}from "@playwright/test";
 
 export class ClientSideDelayPage {
     readonly page: Page;

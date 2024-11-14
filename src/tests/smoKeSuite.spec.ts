@@ -8,6 +8,8 @@ import { LoadDelayPage } from "../pages/LoadDelay.page";
 import { AjaxDataPage } from "../pages/AjaxData.page";
 import { SampleAppPage } from "../pages/SampleApp.page";
 import { ClientSideDelayPage } from "../pages/ClientSideDelay.page";
+import { VerifyTextPage } from "../pages/VerifyText.page";
+import { Verify } from "crypto";
 
 let homePage : HomePage;
 let dynamicTablePage : DynamicTablePage;
@@ -18,6 +20,7 @@ let loadDelayPage : LoadDelayPage;
 let ajaxDataPage : AjaxDataPage;
 let sampleAppPage : SampleAppPage;
 let clientSideDelayPage : ClientSideDelayPage;
+let verifyTextPage : VerifyTextPage;
 
 
 test.describe("Smoke Suite", () => {
@@ -118,7 +121,7 @@ test.describe("Smoke Suite", () => {
     await test.step("Validate Welcome text", async () => {
       await sampleAppPage.validateSuccess();
     })
-  })
+  });
 
   test("Client Side Delay", async ({page}) => {
     homePage = new HomePage(page);
@@ -131,6 +134,17 @@ test.describe("Smoke Suite", () => {
     });
     await test.step("It should validate success text", async () => {
       await clientSideDelayPage.validateSuccessText();
+    });
+  });
+
+  test("Verify Text", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on Verify Text", async () => {
+      await homePage.clickVerifyTextLink();
+    });
+    verifyTextPage = new VerifyTextPage(page);
+    await test.step("It should verify text", async () => {
+      await verifyTextPage.verifyText();
     })
   })
     
