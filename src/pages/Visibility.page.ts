@@ -4,12 +4,15 @@ export class VisibilityPage {
     readonly page: Page;
     readonly visibilityButtons: Locator;
     readonly btnsTable: Locator;
+    readonly hideBtn: Locator;
 
 
     constructor (page: Page) {
         this.page = page;
         this.visibilityButtons = page.locator("td button");
         this.btnsTable = page.locator("tbody");
+        this.hideBtn = page.locator("button#hideButton.btn.btn-primary");
+        
 
     }
 
@@ -20,6 +23,10 @@ export class VisibilityPage {
         for (let i = 0; i < visibilityButtonsLength; i++) {
             await this.visibilityButtons.nth(i).isVisible;
        }
+    }
+    public async clickHideButton() {
+        await this.hideBtn.click();
+       
     }
 
 

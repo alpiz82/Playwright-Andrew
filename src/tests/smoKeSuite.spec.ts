@@ -160,6 +160,9 @@ test.describe("Smoke Suite", () => {
     await test.step("Validate buttons are visible", async ()=> {
       await visibilityPage.verifyBtnsVisibility();
     });
+    await test.step("click on Hide Button", async () => {
+      await visibilityPage.clickHideButton();
+    })
   });
     
 
