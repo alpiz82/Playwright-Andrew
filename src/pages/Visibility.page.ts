@@ -26,6 +26,7 @@ export class VisibilityPage {
     }
     public async clickHideButton() {
         await this.hideBtn.click();
+        await this.hideBtn.isHidden();
        
     }
 
