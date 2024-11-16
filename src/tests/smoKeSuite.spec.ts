@@ -9,7 +9,8 @@ import { AjaxDataPage } from "../pages/AjaxData.page";
 import { SampleAppPage } from "../pages/SampleApp.page";
 import { ClientSideDelayPage } from "../pages/ClientSideDelay.page";
 import { VerifyTextPage } from "../pages/VerifyText.page";
-import { Verify } from "crypto";
+import { MouseOverPage } from "../pages/MouseOver.page"; 
+import { VisibilityPage } from "../pages/Visibility.page";
 
 let homePage : HomePage;
 let dynamicTablePage : DynamicTablePage;
@@ -21,6 +22,8 @@ let ajaxDataPage : AjaxDataPage;
 let sampleAppPage : SampleAppPage;
 let clientSideDelayPage : ClientSideDelayPage;
 let verifyTextPage : VerifyTextPage;
+let mouseOverPage : MouseOverPage;
+let visibilityPage : VisibilityPage;
 
 
 test.describe("Smoke Suite", () => {
@@ -145,9 +148,19 @@ test.describe("Smoke Suite", () => {
     verifyTextPage = new VerifyTextPage(page);
     await test.step("It should verify text", async () => {
       await verifyTextPage.verifyText();
-    })
-  })
-    
+    });
+  });
 
+  test("Visibility", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on Visibility Link", async () => {
+      await homePage.clickVisiBilityLink();
+    });
+    visibilityPage = new VisibilityPage(page);
+    await test.step("Validate buttons are visible", async ()=> {
+      await visibilityPage.verifyBtnsVisibility();
+    });
+  });
+    
 
 });

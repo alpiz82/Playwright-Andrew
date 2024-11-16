@@ -13,7 +13,9 @@ export class HomePage {
     readonly ajaxDataLink: Locator;
     readonly sampleAppLink: Locator;
     readonly clientSideDelayLink: Locator;
-    readonly verifyTextLink: Locator
+    readonly verifyTextLink: Locator;
+    readonly mouseOverLink: Locator;
+    readonly visiBilityLink: Locator;
     
 
 
@@ -29,6 +31,8 @@ export class HomePage {
         this.sampleAppLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(2) a")
         this.clientSideDelayLink = page.locator("#overview .container .row:nth-child(2) .col-sm:nth-child(2) a")
         this.verifyTextLink = page.locator("#overview .container .row:nth-child(3) .col-sm:nth-child(3) a")
+        this.mouseOverLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(3) a")
+        this.visiBilityLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(1) a")
 
 
 
@@ -73,6 +77,14 @@ export class HomePage {
 
     public async clickVerifyTextLink() {
         await this.verifyTextLink.click();
+    }
+
+    public async clickMouseOverLink() {
+        await this.mouseOverLink.click();
+    }
+
+    public async clickVisiBilityLink() {
+        await this.visiBilityLink.click();
     }
 
 
