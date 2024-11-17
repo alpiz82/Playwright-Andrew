@@ -11,6 +11,8 @@ import { ClientSideDelayPage } from "../pages/ClientSideDelay.page";
 import { VerifyTextPage } from "../pages/VerifyText.page";
 import { MouseOverPage } from "../pages/MouseOver.page"; 
 import { VisibilityPage } from "../pages/Visibility.page";
+import { ScrollBarsPage } from "../pages/ScrollBars.page";
+
 
 let homePage : HomePage;
 let dynamicTablePage : DynamicTablePage;
@@ -24,6 +26,7 @@ let clientSideDelayPage : ClientSideDelayPage;
 let verifyTextPage : VerifyTextPage;
 let mouseOverPage : MouseOverPage;
 let visibilityPage : VisibilityPage;
+let scrollBarsPage : ScrollBarsPage;
 
 
 test.describe("Smoke Suite", () => {
@@ -164,6 +167,17 @@ test.describe("Smoke Suite", () => {
       await visibilityPage.clickHideButton();
     })
   });
+
+  test("ScrollBars", async ({page})=> {
+    homePage = new HomePage(page);
+    await test.step("It should click on Scroll Bars Link", async () => {
+      await homePage.clickScrollBarLink();
+    });
+    scrollBarsPage = new ScrollBarsPage(page);
+    await test.step("It should clikc on hide button", async () => {
+      await scrollBarsPage.clickHidingButton();
+    })
+  })
     
 
 });

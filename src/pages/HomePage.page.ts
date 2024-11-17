@@ -16,6 +16,7 @@ export class HomePage {
     readonly verifyTextLink: Locator;
     readonly mouseOverLink: Locator;
     readonly visiBilityLink: Locator;
+    readonly scrollBarLink: Locator;
     
 
 
@@ -24,15 +25,16 @@ export class HomePage {
         this.mainTitle = page.locator("#title");
         this.dynamicTableLink = page.locator("#overview .container .row:nth-child(3) .col-sm:nth-child(2) a");
         this.textInputLink = page.locator("#overview .container .row:nth-child(2) .col-sm:nth-child(4) a");
-        this.classAttributeLink = page.locator("#overview .container .row:nth-child(1) .col-sm:nth-child(2) a")
-        this.hiddenLayerLink = page.locator("#overview .container .row:nth-child(1) .col-sm:nth-child(3) a")
-        this.loadDelayLink = page.locator("#overview .container .row:nth-child(1) .col-sm:nth-child(4) a")
-        this.ajaxDataLink = page.locator("#overview .container .row:nth-child(2) .col-sm:nth-child(1) a")
-        this.sampleAppLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(2) a")
-        this.clientSideDelayLink = page.locator("#overview .container .row:nth-child(2) .col-sm:nth-child(2) a")
-        this.verifyTextLink = page.locator("#overview .container .row:nth-child(3) .col-sm:nth-child(3) a")
-        this.mouseOverLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(3) a")
-        this.visiBilityLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(1) a")
+        this.classAttributeLink = page.locator("#overview .container .row:nth-child(1) .col-sm:nth-child(2) a");
+        this.hiddenLayerLink = page.locator("#overview .container .row:nth-child(1) .col-sm:nth-child(3) a");
+        this.loadDelayLink = page.locator("#overview .container .row:nth-child(1) .col-sm:nth-child(4) a");
+        this.ajaxDataLink = page.locator("#overview .container .row:nth-child(2) .col-sm:nth-child(1) a");
+        this.sampleAppLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(2) a");
+        this.clientSideDelayLink = page.locator("#overview .container .row:nth-child(2) .col-sm:nth-child(2) a");
+        this.verifyTextLink = page.locator("#overview .container .row:nth-child(3) .col-sm:nth-child(3) a");
+        this.mouseOverLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(3) a");
+        this.visiBilityLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(1) a");
+        this.scrollBarLink = page.locator("#overview .container .row:nth-child(3) .col-sm:nth-child(1) a");
 
 
 
@@ -85,6 +87,10 @@ export class HomePage {
 
     public async clickVisiBilityLink() {
         await this.visiBilityLink.click();
+    }
+
+    public async clickScrollBarLink() {
+        await this.scrollBarLink.click();
     }
 
 
