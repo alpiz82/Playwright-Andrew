@@ -12,6 +12,7 @@ import { VerifyTextPage } from "../pages/VerifyText.page";
 import { MouseOverPage } from "../pages/MouseOver.page"; 
 import { VisibilityPage } from "../pages/Visibility.page";
 import { ScrollBarsPage } from "../pages/ScrollBars.page";
+import { AlertsPage } from "../pages/Alerts.page";
 
 
 let homePage : HomePage;
@@ -27,7 +28,7 @@ let verifyTextPage : VerifyTextPage;
 let mouseOverPage : MouseOverPage;
 let visibilityPage : VisibilityPage;
 let scrollBarsPage : ScrollBarsPage;
-
+let alertsPage : AlertsPage;
 
 test.describe("Smoke Suite", () => {
   test.beforeEach(async ({page}) => {
@@ -165,7 +166,7 @@ test.describe("Smoke Suite", () => {
     });
     await test.step("click on Hide Button", async () => {
       await visibilityPage.clickHideButton();
-    })
+    });
   });
 
   test("ScrollBars", async ({page})=> {
@@ -176,8 +177,27 @@ test.describe("Smoke Suite", () => {
     scrollBarsPage = new ScrollBarsPage(page);
     await test.step("It should clikc on hide button", async () => {
       await scrollBarsPage.clickHidingButton();
+    });
+  });
+
+  test("Alerts", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should cick on Alert Link", async () => {
+      await homePage.clickAlertsLink();
+    });
+    alertsPage = new AlertsPage(page);
+    await test.step("It shoudl click alert and execute the popup window", async () => {
+      await alertsPage.handleAlertButton();
     })
   })
+
+
+
+
+
+
+
+
     
 
 });

@@ -17,6 +17,7 @@ export class HomePage {
     readonly mouseOverLink: Locator;
     readonly visiBilityLink: Locator;
     readonly scrollBarLink: Locator;
+    readonly alertsLink: Locator;
     
 
 
@@ -35,6 +36,7 @@ export class HomePage {
         this.mouseOverLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(3) a");
         this.visiBilityLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(1) a");
         this.scrollBarLink = page.locator("#overview .container .row:nth-child(3) .col-sm:nth-child(1) a");
+        this.alertsLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(3) a");
 
 
 
@@ -91,6 +93,10 @@ export class HomePage {
 
     public async clickScrollBarLink() {
         await this.scrollBarLink.click();
+    }
+
+    public async clickAlertsLink() {
+        await this.alertsLink.click();
     }
 
 
