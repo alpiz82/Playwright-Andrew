@@ -6,7 +6,7 @@ export class AlertsPage {
     readonly confirmButton: Locator;
     readonly promptButton: Locator;
 
-    constructor (page: Page) {
+    constructor(page: Page) {
         this.page = page;
         this.alertButton = page.locator("//*[@id='alertButton']");
         this.confirmButton = page.locator("//*[@id='confirmButton']");
@@ -14,8 +14,8 @@ export class AlertsPage {
 
     };
 
-    public async handleAlertButton () {
-      
+    public async handleAlertButton() {
+
         this.page.on('dialog', async (dialogWindows) => {
             console.log(dialogWindows.message());
             //expect(dialogWindows.type()).toContain("alert");
@@ -28,12 +28,12 @@ export class AlertsPage {
         await this.alertButton.click();
     };
 
-   // page.on('dialog', async dialog => {
-   //     console.log(dialog.message());
-   //     await dialog.accept();
-   //   });
+    // page.on('dialog', async dialog => {
+    //     console.log(dialog.message());
+    //     await dialog.accept();
+    //   });
 
-    public async handleConfirmButton () {
+    public async handleConfirmButton() {
 
         this.page.on('dialog', async dialog => {
             console.log(dialog.message());
@@ -43,12 +43,20 @@ export class AlertsPage {
             await dialog.defaultValue();
         });
 
-        await this.confirmButton.waitFor({timeout:5000});
+        await this.confirmButton.waitFor({ timeout: 5000 });
 
         await this.confirmButton.click();
 
         
     };
+
+    public async handlePromptButton() {
+        this.page.on('dialog', async dialog => {
+            console.log(dialog.message());
+            await dialog.defaultValue();
+        });
+        await this.promptButton.click();
+    }
 
 
 

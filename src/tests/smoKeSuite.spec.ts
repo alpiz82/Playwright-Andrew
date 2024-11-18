@@ -192,6 +192,9 @@ test.describe("Smoke Suite", () => {
     await test.step("It should click confirm and execute the popup windows", async () => {
       await alertsPage.handleConfirmButton();
     });
+    await test.step("It should click prompt and execute the popup window", async () => {
+      await alertsPage.handlePromptButton();
+    })
   });
 
   
