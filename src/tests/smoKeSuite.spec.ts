@@ -188,9 +188,13 @@ test.describe("Smoke Suite", () => {
     alertsPage = new AlertsPage(page);
     await test.step("It shoudl click alert and execute the popup window", async () => {
       await alertsPage.handleAlertButton();
-    })
-  })
+    });
+    await test.step("It should click confirm and execute the popup windows", async () => {
+      await alertsPage.handleConfirmButton();
+    });
+  });
 
+  
 
 
 
