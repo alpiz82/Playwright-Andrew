@@ -14,6 +14,7 @@ import { VisibilityPage } from "../pages/Visibility.page";
 import { ScrollBarsPage } from "../pages/ScrollBars.page";
 import { AlertsPage } from "../pages/Alerts.page";
 import { DisabledInputPage } from "../pages/DisabledInput.page";
+import { AnimatedButtonPage } from "../pages/AnimatedButton.page";
 
 
 let homePage : HomePage;
@@ -31,6 +32,7 @@ let visibilityPage : VisibilityPage;
 let scrollBarsPage : ScrollBarsPage;
 let alertsPage : AlertsPage;
 let disableInputPage : DisabledInputPage;
+let animatedButtonPage : AnimatedButtonPage;
 
 test.describe("Smoke Suite", () => {
   test.beforeEach(async ({page}) => {
@@ -208,8 +210,18 @@ test.describe("Smoke Suite", () => {
     await test.step("It should click enable input and wait to input text", async () => {
       await disableInputPage.enableFielText();
     });
-
   });
+
+  test("Animated Button", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on Animated Button", async () => {
+      await homePage.clickAnimatedButtonLink();
+    });
+    animatedButtonPage = new AnimatedButtonPage(page);
+    await test.step("It should click on Start Animation button and wait to click on animated button", async () => {
+      await animatedButtonPage.startAnimatedBtns();
+    })
+  })
 
   
 
