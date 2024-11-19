@@ -13,6 +13,7 @@ import { MouseOverPage } from "../pages/MouseOver.page";
 import { VisibilityPage } from "../pages/Visibility.page";
 import { ScrollBarsPage } from "../pages/ScrollBars.page";
 import { AlertsPage } from "../pages/Alerts.page";
+import { DisabledInputPage } from "../pages/DisabledInput.page";
 
 
 let homePage : HomePage;
@@ -29,6 +30,7 @@ let mouseOverPage : MouseOverPage;
 let visibilityPage : VisibilityPage;
 let scrollBarsPage : ScrollBarsPage;
 let alertsPage : AlertsPage;
+let disableInputPage : DisabledInputPage;
 
 test.describe("Smoke Suite", () => {
   test.beforeEach(async ({page}) => {
@@ -194,7 +196,19 @@ test.describe("Smoke Suite", () => {
     });
     await test.step("It should click prompt and execute the popup window", async () => {
       await alertsPage.handlePromptButton();
-    })
+    });
+  });
+
+  test("Disable Input", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on Disable Input Link", async () => {
+      await homePage.clickDisableInputLink();
+    });
+    disableInputPage = new DisabledInputPage(page);
+    await test.step("It should click enable input and wait to input text", async () => {
+      await disableInputPage.enableFielText();
+    });
+
   });
 
   
