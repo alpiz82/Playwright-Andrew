@@ -111,6 +111,10 @@ export class HomePage {
         await this.animatedButtonLink.click();
     }
 
+    public async clickMouseOverLink() {
+        await this.mouseOverLink.click();
+    }
+
 
 
 

@@ -220,6 +220,17 @@ test.describe("Smoke Suite", () => {
     animatedButtonPage = new AnimatedButtonPage(page);
     await test.step("It should click on Start Animation button and wait to click on animated button", async () => {
       await animatedButtonPage.startAnimatedBtns();
+    });
+  });
+
+  test("Mouse Over", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on Mouse Over Link", async () => {
+      await homePage.clickMouseOverLink();
+    });
+    mouseOverPage = new MouseOverPage(page);
+    await test.step("It should over and then click on the Link", async () => {
+      await mouseOverPage.overClickMe();
     })
   })
 
