@@ -231,8 +231,12 @@ test.describe("Smoke Suite", () => {
     mouseOverPage = new MouseOverPage(page);
     await test.step("It should over and then click on the Link", async () => {
       await mouseOverPage.overClickMe();
+    });
+    await test.step("It should over and then click on Link button", async () => {
+      await mouseOverPage.linkButtonOverClick();
+
     })
-  })
+  });
 
   
 
