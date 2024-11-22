@@ -20,6 +20,7 @@ export class HomePage {
     readonly alertsLink: Locator;
     readonly disableInputLink: Locator;
     readonly animatedButtonLink: Locator;
+    readonly overlappedElementLink: Locator;
     
 
 
@@ -41,6 +42,7 @@ export class HomePage {
         this.alertsLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(3) a");
         this.disableInputLink = page.locator("#overview .container .row:nth-child(6) .col-sm:nth-child(2) a");
         this.animatedButtonLink = page.locator("#overview .container .row:nth-child(6) .col-sm:nth-child(1) a");
+        this.overlappedElementLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(1) a");
 
 
 
@@ -111,8 +113,8 @@ export class HomePage {
         await this.animatedButtonLink.click();
     }
 
-    public async clickMouseOverLink() {
-        await this.mouseOverLink.click();
+    public async clickOverlappedElementLink() {
+        await this.overlappedElementLink.click();
     }
 
 

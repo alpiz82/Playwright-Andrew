@@ -15,7 +15,7 @@ import { ScrollBarsPage } from "../pages/ScrollBars.page";
 import { AlertsPage } from "../pages/Alerts.page";
 import { DisabledInputPage } from "../pages/DisabledInput.page";
 import { AnimatedButtonPage } from "../pages/AnimatedButton.page";
-
+import { OverlappedElementPage } from "../pages/OverlappedElement.page";
 
 let homePage : HomePage;
 let dynamicTablePage : DynamicTablePage;
@@ -33,6 +33,7 @@ let scrollBarsPage : ScrollBarsPage;
 let alertsPage : AlertsPage;
 let disableInputPage : DisabledInputPage;
 let animatedButtonPage : AnimatedButtonPage;
+let overlappedElementPage : OverlappedElementPage;
 
 test.describe("Smoke Suite", () => {
   test.beforeEach(async ({page}) => {
@@ -234,9 +235,19 @@ test.describe("Smoke Suite", () => {
     });
     await test.step("It should over and then click on Link button", async () => {
       await mouseOverPage.linkButtonOverClick();
-
-    })
+    });
   });
+
+  test("Overlapped Element", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on Overlapped Element Link", async () => {
+      await homePage.clickOverlappedElementLink();
+    });
+    overlappedElementPage = new OverlappedElementPage(page);
+    await test.step("It should fill the overlapped form", async () => {
+      await overlappedElementPage.fillOverlappedForm();
+    })
+  })
 
   
 
