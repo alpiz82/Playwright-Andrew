@@ -16,6 +16,7 @@ import { AlertsPage } from "../pages/Alerts.page";
 import { DisabledInputPage } from "../pages/DisabledInput.page";
 import { AnimatedButtonPage } from "../pages/AnimatedButton.page";
 import { OverlappedElementPage } from "../pages/OverlappedElement.page";
+import { ShadowDomPage } from "../pages/ShadowDom.page";
 
 let homePage : HomePage;
 let dynamicTablePage : DynamicTablePage;
@@ -34,6 +35,7 @@ let alertsPage : AlertsPage;
 let disableInputPage : DisabledInputPage;
 let animatedButtonPage : AnimatedButtonPage;
 let overlappedElementPage : OverlappedElementPage;
+let shadowDomPage : ShadowDomPage;
 
 test.describe("Smoke Suite", () => {
   test.beforeEach(async ({page}) => {
@@ -246,7 +248,18 @@ test.describe("Smoke Suite", () => {
     overlappedElementPage = new OverlappedElementPage(page);
     await test.step("It should fill the overlapped form", async () => {
       await overlappedElementPage.fillOverlappedForm();
-    })
+    });
+  });
+
+  test("Shadow Dom", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on Shadow Dom Link", async () => {
+      await homePage.clickShadowDomLink();
+    });
+    shadowDomPage = new ShadowDomPage(page);
+    await test.step("It should hit the gui-generator and copied", async () => {
+      await shadowDomPage.clickAndCopy();
+    });
   })
 
   

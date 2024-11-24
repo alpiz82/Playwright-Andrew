@@ -21,6 +21,7 @@ export class HomePage {
     readonly disableInputLink: Locator;
     readonly animatedButtonLink: Locator;
     readonly overlappedElementLink: Locator;
+    readonly shadowDomLink: Locator;
     
 
 
@@ -43,6 +44,7 @@ export class HomePage {
         this.disableInputLink = page.locator("#overview .container .row:nth-child(6) .col-sm:nth-child(2) a");
         this.animatedButtonLink = page.locator("#overview .container .row:nth-child(6) .col-sm:nth-child(1) a");
         this.overlappedElementLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(1) a");
+        this.shadowDomLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(2) a");
 
 
 
@@ -117,6 +119,9 @@ export class HomePage {
         await this.overlappedElementLink.click();
     }
 
+    public async clickShadowDomLink() {
+        await this.shadowDomLink.click();
+    }
 
 
 
