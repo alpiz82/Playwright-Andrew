@@ -1,2 +1,2 @@
-# Playwright-Andrew
+# Playwright-Automation
 Playwright Daily Practice
