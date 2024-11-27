@@ -17,7 +17,7 @@ export class ShadowDomPage {
        //this.page.getByRole('button').locator().click({position: {x: 9.44, y: 11}});
        // await this.page.locator('button:buttonGenerate').click();
         //await this.page.locator('button').locator('nth=0').click({position: {x: 9.44, y: 11}});
-        await this.page.locator('#guid-generator').isVisible();
+        await this.page.locator('#guid-generator').b
          //("#GUID Generator #buttonGenerate").click();
 
     }
