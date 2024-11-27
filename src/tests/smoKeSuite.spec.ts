@@ -260,7 +260,7 @@ test.describe("Smoke Suite", () => {
     await test.step("It should hit the gui-generator and copied", async () => {
       await shadowDomPage.clickAndCopy();
     });
-  })
+  });
 
   
 
