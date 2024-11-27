@@ -17,6 +17,7 @@ import { DisabledInputPage } from "../pages/DisabledInput.page";
 import { AnimatedButtonPage } from "../pages/AnimatedButton.page";
 import { OverlappedElementPage } from "../pages/OverlappedElement.page";
 import { ShadowDomPage } from "../pages/ShadowDom.page";
+import { NoneBreackingSpacesPage } from "../pages/NoneBreackingSpaces.page";
 
 let homePage : HomePage;
 let dynamicTablePage : DynamicTablePage;
@@ -36,6 +37,7 @@ let disableInputPage : DisabledInputPage;
 let animatedButtonPage : AnimatedButtonPage;
 let overlappedElementPage : OverlappedElementPage;
 let shadowDomPage : ShadowDomPage;
+let noneBreackingSpacesPage : NoneBreackingSpacesPage;
 
 test.describe("Smoke Suite", () => {
   test.beforeEach(async ({page}) => {
@@ -261,6 +263,17 @@ test.describe("Smoke Suite", () => {
       await shadowDomPage.clickAndCopy();
     });
   });
+
+  test("None Breacking Spaces", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on None Breacking Spaces Link", async() => {
+      await homePage.clickNoneBreackingSpacesLink();
+    });
+    noneBreackingSpacesPage = new NoneBreackingSpacesPage(page);
+    await test.step("It should click on My Button", async () => {
+      await noneBreackingSpacesPage.clickMyButton();
+    })
+  })
 
   
 
