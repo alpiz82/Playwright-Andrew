@@ -6,7 +6,7 @@ export class NoneBreackingSpacesPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.myButton = page.locator('body > section > div > button');
+        this.myButton = page.locator('button.btn.btn-primary');
     }
 
     public async clickMyButton() {
