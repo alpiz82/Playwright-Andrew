@@ -23,6 +23,7 @@ export class HomePage {
     readonly overlappedElementLink: Locator;
     readonly shadowDomLink: Locator;
     readonly noneBreackingSpacesLink: Locator;
+    readonly progressBarLink: Locator;
     
 
 
@@ -47,6 +48,7 @@ export class HomePage {
         this.overlappedElementLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(1) a");
         this.shadowDomLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(2) a");
         this.noneBreackingSpacesLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(4) a");
+        this.progressBarLink = page.locator("#overview .container .row:nth-child(3) .col-sm:nth-child(4) a");
 
 
 
@@ -127,6 +129,10 @@ export class HomePage {
 
     public async clickNoneBreackingSpacesLink() {
         await this.noneBreackingSpacesLink.click();
+    }
+
+    public async clickProgressBarLink() {
+        await this.progressBarLink.click();
     }
 
 

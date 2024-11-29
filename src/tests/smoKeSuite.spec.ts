@@ -18,6 +18,7 @@ import { AnimatedButtonPage } from "../pages/AnimatedButton.page";
 import { OverlappedElementPage } from "../pages/OverlappedElement.page";
 import { ShadowDomPage } from "../pages/ShadowDom.page";
 import { NoneBreackingSpacesPage } from "../pages/NoneBreackingSpaces.page";
+import { ProgressBarPage } from "../pages/ProgressBar.page";
 
 let homePage : HomePage;
 let dynamicTablePage : DynamicTablePage;
@@ -38,6 +39,7 @@ let animatedButtonPage : AnimatedButtonPage;
 let overlappedElementPage : OverlappedElementPage;
 let shadowDomPage : ShadowDomPage;
 let noneBreackingSpacesPage : NoneBreackingSpacesPage;
+let progressBarPage : ProgressBarPage;
 
 test.describe("Smoke Suite", () => {
   test.beforeEach(async ({page}) => {
@@ -272,8 +274,19 @@ test.describe("Smoke Suite", () => {
     noneBreackingSpacesPage = new NoneBreackingSpacesPage(page);
     await test.step("It should click on My Button", async () => {
       await noneBreackingSpacesPage.clickMyButton();
-    })
-  })
+    });
+  });
+
+  test("Progress Bar", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step("It should click on Progress Bar Link", async () => {
+      await homePage.clickProgressBarLink();
+    });
+    progressBarPage = new ProgressBarPage(page);
+    await test.step("It should click and wait", async () => {
+      await progressBarPage.clickAndWait();
+    });
+  });
 
   
 
