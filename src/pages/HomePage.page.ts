@@ -24,6 +24,7 @@ export class HomePage {
     readonly shadowDomLink: Locator;
     readonly noneBreackingSpacesLink: Locator;
     readonly progressBarLink: Locator;
+    readonly fileUploadLink: Locator;
     
 
 
@@ -49,6 +50,7 @@ export class HomePage {
         this.shadowDomLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(2) a");
         this.noneBreackingSpacesLink = page.locator("#overview .container .row:nth-child(4) .col-sm:nth-child(4) a");
         this.progressBarLink = page.locator("#overview .container .row:nth-child(3) .col-sm:nth-child(4) a");
+        this.fileUploadLink = page.locator("#overview .container .row:nth-child(5) .col-sm:nth-child(4) a");
 
 
 
@@ -133,6 +135,10 @@ export class HomePage {
 
     public async clickProgressBarLink() {
         await this.progressBarLink.click();
+    }
+
+    public async clickFileUploadLink() {
+        await this.fileUploadLink.click();
     }
 
 

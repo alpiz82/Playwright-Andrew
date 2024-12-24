@@ -19,6 +19,7 @@ import { OverlappedElementPage } from "../pages/OverlappedElement.page";
 import { ShadowDomPage } from "../pages/ShadowDom.page";
 import { NoneBreackingSpacesPage } from "../pages/NoneBreackingSpaces.page";
 import { ProgressBarPage } from "../pages/ProgressBar.page";
+import { FileUploadPage } from "../pages/FileUpload.page";
 
 let homePage : HomePage;
 let dynamicTablePage : DynamicTablePage;
@@ -40,11 +41,12 @@ let overlappedElementPage : OverlappedElementPage;
 let shadowDomPage : ShadowDomPage;
 let noneBreackingSpacesPage : NoneBreackingSpacesPage;
 let progressBarPage : ProgressBarPage;
+let fileUploadPage : FileUploadPage;
 
 test.describe("Smoke Suite", () => {
   test.beforeEach(async ({page}) => {
     await page.goto('/');
-  });
+  })
 
   test("Home Validations", async ({page}) => {
     homePage = new HomePage(page);
@@ -287,6 +289,17 @@ test.describe("Smoke Suite", () => {
       await progressBarPage.clickAndWait();
     });
   });
+
+  test("File Upload Page", async ({page}) => {
+    homePage = new HomePage(page);
+    await test.step(" It should click on File Upload Link", async () => {
+      await homePage.clickFileUploadLink();
+    }); 
+    fileUploadPage = new FileUploadPage(page);
+    await test.step("It should click on Brose button and drag a file", async () => {
+      await fileUploadPage.clickBrowseButton();
+    })
+  })
 
   
 
